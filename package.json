@@ -1,0 +1,34 @@
+{
+    "name": "ikcosmetics",
+    "version": "1.0.0",
+    "description": "IKCosmetics Web Application",
+    "main": "index.js",
+    "scripts": {
+        "start": "node dist/server/index.js",
+        "dev": "cross-env NODE_ENV=DEVELOPMENT nodemon server/index.ts",
+        "build": "tsc"
+    },
+    "author": "Elliot Morrison",
+    "license": "ISC",
+    "dependencies": {
+        "@prisma/client": "^4.0.0",
+        "axios": "^1.1.3",
+        "bcrypt": "^5.0.1",
+        "body-parser": "^1.20.0",
+        "connect-history-api-fallback": "^2.0.0",
+        "cors": "^2.8.5",
+        "dotenv": "^16.0.3",
+        "express": "^4.18.2"
+    },
+    "devDependencies": {
+        "@types/bcrypt": "^5.0.0",
+        "@types/cors": "^2.8.12",
+        "@types/express": "^4.17.14",
+        "@types/node": "^18.11.3",
+        "cross-env": "^7.0.3",
+        "nodemon": "^2.0.19",
+        "prisma": "^4.0.0",
+        "ts-node": "^10.8.2",
+        "typescript": "^4.8.4"
+    }
+}

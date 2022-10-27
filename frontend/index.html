@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/ico" href="/ik-logo.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ishmael Klassic Beauty Supply</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </head>
+  <body class="bg-gradient-to-r from-rose-600 to-indigo-600">
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts">
+          
+    </script>
+  </body>
+</html>
+<script lang="js">
+$(window).scroll(function() {
+       $(".slideanim").each(function(){
+       var pos = $(this).offset().top;
+
+       var winTop = $(window).scrollTop();
+         if (pos < winTop + 700) {
+            $(this).addClass("slide");
+          }
+    })
+  })
+</script>
