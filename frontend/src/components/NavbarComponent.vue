@@ -1,8 +1,8 @@
 <template>
-  <div class="navbar bg-gray-200 border-black border-b-4 text-black sticky top-0 z-index-above-all">
+  <div class="navbar border-black border-b-4 text-black sticky top-0 z-index-above-all" style="background-color: white">
     <div class="navbar-start">
       <div class="dropdown">
-        <label tabindex="0" class="btn btn-ghost text-black lg:hidden">
+        <label tabindex="0" class="btn btn-ghost text-black xl:hidden">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
         </label>
         <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-gray-200 rounded-box w-52 text-black">
@@ -27,7 +27,7 @@
         <img src="../assets/ik-logo.png" alt="Ishmael Klassic logo" class="h-12 -mt-3">
       </router-link>
     </div>
-    <div class="navbar-center hidden lg:flex">
+    <div class="navbar-center hidden xl:flex">
       <ul class="menu menu-horizontal p-0">
         <li class="hover:text-[#be185d] font-bold"><router-link to="/" class="justify-between">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>

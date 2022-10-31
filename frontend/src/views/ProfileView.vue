@@ -8,35 +8,39 @@
         <p class="my-1 text-center sm:text-left max-w-2xl text-sm text-gray-500">Personal details and account information.</p>
       </span>
       <span class="flex justify-center">
-        <button class="btn max-w-sm" @click="this.$router.push('edit-profile')">Edit User Details</button>
+        <button class="btn max-w-sm" @click="">Edit User Details</button>
       </span>
     </div>
     <div class="border-t border-gray-200">
       <dl>
         <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
           <dt class="text-md font-medium text-gray-500">First name</dt>
-          <dd class="mt-1 text-lg font-medium text-gray-900 sm:mt-0 sm:col-span-2 flex justify-between items-center">{{ user.first_name}}</dd>
+          <dd class="mt-1 text-lg font-medium text-gray-900 sm:mt-0 sm:col-span-2 flex justify-between items-center">{{ currentUser.user.firstName}}</dd>
         </div>
         <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
           <dt class="text-md font-medium text-gray-500">Last name</dt>
-          <dd class="mt-1 text-lg font-medium text-gray-900 sm:mt-0 sm:col-span-2 flex justify-between items-center">{{ user.last_name }} </dd>
+          <dd class="mt-1 text-lg font-medium text-gray-900 sm:mt-0 sm:col-span-2 flex justify-between items-center">{{ currentUser.user.lastName }} </dd>
         </div>
         <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
           <dt class="text-md font-medium text-gray-500">Phone Number</dt>
-          <dd class="mt-1 text-lg font-medium text-gray-900 sm:mt-0 sm:col-span-2 flex justify-between items-center">{{user.phone_number}} </dd>
+          <dd class="mt-1 text-lg font-medium text-gray-900 sm:mt-0 sm:col-span-2 flex justify-between items-center">{{currentUser.user.phoneNumber}} </dd>
         </div>
         <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
           <dt class="text-md font-medium text-gray-500">Email address</dt>
-          <dd class="mt-1 text-lg font-medium text-gray-900 sm:mt-0 sm:col-span-2 flex justify-between items-center">{{user.email}}</dd>
+          <dd class="mt-1 text-lg font-medium text-gray-900 sm:mt-0 sm:col-span-2 flex justify-between items-center">{{currentUser.user.email}}</dd>
+        </div>
+        <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <dt class="text-md font-medium text-gray-500">Gender</dt>
+          <dd class="mt-1 text-lg font-medium text-gray-900 sm:mt-0 sm:col-span-2 flex justify-between items-center">{{currentUser.user.gender}}</dd>
         </div>
         <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
           <dt class="text-md font-medium text-gray-500">Date of birth</dt>
-          <dd class="mt-1 text-lg font-medium text-gray-900 sm:mt-0 sm:col-span-2 flex justify-between items-center">{{user.date_of_birth}}</dd>
+          <dd class="mt-1 text-lg font-medium text-gray-900 sm:mt-0 sm:col-span-2 flex justify-between items-center">{{new Date(currentUser.user.dateOfBirth).toLocaleDateString() }}</dd>
         </div>
         <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
           <dt class="text-md font-medium text-gray-500">Shipping Address(es)</dt>
           <dd class="mt-1 text-lg font-medium text-gray-900 sm:mt-0 sm:col-span-2 gap-x-5 flex flex-col justify-start">
-            <span v-for="address,index in user.shipping_address" :key="index" class="mb-3 flex flex=start gap-3">
+            <span v-for="address,index in shippingAddress" :key="index" class="mb-3 flex flex=start gap-3">
               <div class="rounded p-4 bg-gray-800 text-gray-200 w-96 relative h-fit">
                 <button class="btn btn-sm absolute btn-error top-4 right-4">delete</button>
                 <p class="text-base font-sans mb-2">Address {{index+1}}</p>
@@ -84,7 +88,7 @@
       </Transition>
       <div class="modal-action">
         <button class="btn" @click="changePassword()" v-if="!changeSuccess">Change Password</button>
-        <label for="changePassword" class="btn" v-else @click="this.$router.go()">close</label>
+        <label for="changePassword" class="btn" v-else @click="refreshPage">close</label>
       </div>
     </div>
   </div>
@@ -92,54 +96,44 @@
 </div>
 </template>
 
-<script>
+<script setup lang="ts">
 import NavbarComponent from "@/components/NavbarComponent.vue";
-import DataService from "@/dataService";
+import DataService from "../DataService";
 import FooterComponent from '@/components/FooterComponent.vue'
-export default{
-    name:'ProfileView',
-    components:{
-        NavbarComponent,
-        FooterComponent,
-    },
-    data(){
-        return{
-            user:{},
-            passwordChange : {
-              password:'',
-              new:'',
-              confirm : ''            
-            },
-            errorMsg : '',
-            newPasswordError : '',
-            changeSuccess : false
-        }
-    },
-    methods:{
-      async changePassword(){
-        if(this.passwordChange.password != ''){
-          this.errorMsg = ''
-          if(this.passwordChange.new.length > 8 && this.passwordChange.new != '' && this.passwordChange.new === this.passwordChange.confirm){
-            this.newPasswordError = ''
-            let res = await DataService.login(this.user.email,this.passwordChange.password)
-            if(res.login){
-             let res =  await DataService.changeUserPassword(this.$getCurrentUserId(),this.passwordChange.new)
-             console.log(res);
-             this.changeSuccess = res.status
-            }else{
-              this.errorMsg = 'Current Password is Incorrect'
-            }
-          }else{
-            this.newPasswordError = 'Password must be 8 characters or greater'
-          }
-        }else{
-          this.errorMsg = 'Current password field is empty'
-        }
-      },
-    },
-    async created(){
-        this.user = await DataService.getUserInfo(this.$getCurrentUserId())
-    }
+import { ref } from "vue";
+import { currentUserStore } from "../stores/userStore";
+const currentUser = currentUserStore();
+
+//create shipping address array
+const shippingAddress = [
+  {
+    street_address: "123 Main Street",
+    parish: "Kingston",
+    city: "Kingston",
+  },
+  {
+    street_address: "123 Main Street",
+    parish: "Kingston",
+    city: "Kingston",
+  },
+];
+
+let passwordChange = ref({
+  password: "",
+  new: "",
+  confirm: "",
+});
+
+let errorMsg = ref("");
+let newPasswordError = ref("");
+let changeSuccess = ref(false);
+
+function refreshPage() {
+  window.location.reload();
+}
+
+function changePassword(){
+  changeSuccess.value = true
 }
 </script>
 <style scoped>

@@ -53,21 +53,19 @@
                 <p>${{total}}</p>
               </div>
               <p class="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
-              <button class="btn-success btn rounded w-full font-bold mt-5" @click="DataService.emptyCurrentCart(currentUserStore().user.id)" :disabled="currentCart.getProductCount() == 0 ? true : false">Proceed To Checkout</button>
+              <button class="btn-success btn rounded w-full font-bold mt-5" @click="goToCheckout()" :disabled="currentCart.getProductCount() == 0 ? true : false">Proceed To Checkout</button>
               <div class="mt-6 flex justify-center text-center text-sm text-gray-500">
                 <p>
-                  or <button type="button" class="font-medium text-indigo-600 hover:text-indigo-500" @click="">Continue Shopping<span aria-hidden="true"> &rarr;</span></button>
+                  or <button type="button" class="font-medium text-indigo-600 hover:text-indigo-500" @click="goToCategories">Continue Shopping<span aria-hidden="true"> &rarr;</span></button>
                 </p>
               </div>
             </div>
         </span>
 
-         <div class="h-fit py-3 rounded mx-5 my-12">
-            <h2 class="text-gray-200 text-3xl font-bold">Drop in your cart for under $1000</h2>
-            <div class="grow px-2 py-4 gap-x-5 flex justify-start overflow-x-scroll scroll-style">
-                <ProductComponent width="64" :product="prods" v-for="prods in cheapAdditionProducts" :key="prods.id" class="flex-none"/>
-            </div>
-        </div>
+        <h2 class="text-2xl lg:text-4xl font-extrabold text-center text-gray-200 my-10">Drop in your cart for under $1000</h2>
+        <perfect-scrollbar class="w-full mb-20 mx-auto max-w-xl md:max-w-3xl lg:max-w-6xl xl:max-w-7xl py-5 px-4 h-fit min-h-fit gap-x-5 grid grid-flow-col grid-rows-1 bg-gray-700 rounded overflow-x-scroll">
+            <ProductComponent width="64" :product="product" v-for="i in 10" class="flex-none"/>
+        </perfect-scrollbar>
         <FooterComponent/>
     </div>
 </template>
@@ -83,7 +81,18 @@ import { currentUserStore } from '../stores/userStore';
 import {Cart} from '../types/betterTypes';
 
 const currentCart = currentCartStore();
-
+let product: Product = {
+    id: 0,
+    name: '',
+    price: 0,
+    description: '',
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    categoryId: 0,
+    rating: 0,
+    stock: 0,
+    thumbnail: '',
+};
 // currentCart.resetCart();
 let cart = ref<Cart>(currentCart.cart);
 // if (currentUserStore().loggedIn) {
@@ -105,6 +114,13 @@ function deleteItem(index: number) {
     // cart.value.products.splice(index, 1);
     // changesMade.value = true;
     // calculateBill();
+}
+
+function goToCategories() {
+    window.location.href = '/categories';
+}
+function goToCheckout() {
+    window.location.href = '/checkout';
 }
 
 function calculateBill() {

@@ -13,45 +13,45 @@
               <p class="text-md col-span-6 text-center font-medium">User Information</p>
               <div class="col-span-6 sm:col-span-3">
                 <label for="first-name" class="block text-sm font-medium text-gray-700">First name</label>
-                <input type="text" v-model="userInfo.first_name" name="first-name" id="first-name" autocomplete="given-name" class="mt-1 input input-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                <input type="text" v-model="currentUser.user.firstName" name="first-name" id="first-name" autocomplete="given-name" class="mt-1 input input-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
               </div>
 
               <div class="col-span-6 sm:col-span-3">
                 <label for="last-name" class="block text-sm font-medium text-gray-700">Last name</label>
-                <input type="text" v-model="userInfo.last_name" name="last-name" id="last-name" autocomplete="family-name" class="mt-1 input input-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                <input type="text" v-model="currentUser.user.lastName" name="last-name" id="last-name" autocomplete="family-name" class="mt-1 input input-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
               </div>
-
+              
               <div class="col-span-6 sm:col-span-2">
                 <label for="email-address" class="block text-sm font-medium text-gray-700">Email address</label>
-                <input type="text" v-model="userInfo.email" name="email-address" id="email-address" autocomplete="email" :class="`mt-1 input input-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm ${!error.email ? 'border-gray-300':'border-red-600'}  rounded-md`">
+                <input type="text" v-model="currentUser.user.email" name="email-address" id="email-address" autocomplete="email" :class="`mt-1 input input-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm ${!error.email ? 'border-gray-300':'border-red-600'}  rounded-md`">
               </div>
               <div class="col-span-6 sm:col-span-2">
                 <label for="email-address" class="block text-sm font-medium text-gray-700">Phone Number</label>
-                <input type="text" v-model="userInfo.phone_number" name="phone-number" id="phone-number" :class="`mt-1 input input-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm ${!error.phone ? 'border-gray-300':'border-red-600'} rounded-md`">
+                <input type="text" v-model="currentUser.user.phoneNumber" name="phone-number" id="phone-number" :class="`mt-1 input input-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm ${!error.phone ? 'border-gray-300':'border-red-600'} rounded-md`">
               </div>
               <div class="col-span-6 sm:col-span-2">
                 <label for="email-address" class="block text-sm font-medium text-gray-700">Date of birth</label>
-                <input type="date" v-model="userInfo.date_of_birth" name="date_of_birth" id="date_of_birth" class="mt-1 input input-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                <input type="date" :value="dateString" name="date_of_birth" id="date_of_birth" class="mt-1 input input-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
               </div>
               <div class="divider col-span-6"></div>
                 <p class="text-md col-span-6 text-center font-medium">Shipping Address Information</p>
                 <select id="shippingAddress" v-model="re" name="shippingAddress" class="mt-1 col-span-6 lg:col-span-5 select-md select select-ghost text-black focus:text-black bg-gray-200 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                <option v-for="(add,index) in userInfo.shipping_address" :key="index" :value="`${index}`">{{`${add.street_address}, ${add.city}, ${add.parish}`}} </option>
+                <option v-for="(add,index) in shippingAddress" :key="index" :value="`${index}`">{{`${add.street_address}, ${add.city}, ${add.parish}`}} </option>
                 </select>
                 <div class="col-span-6 lg:col-span-1 flex justify-center"><label for="addNewAddress" class="btn btn-sm sm:btn-md mt-1">add new address</label></div>
               <div class="col-span-6" v-if="userLoaded">
                 <label for="street-address" class="block text-sm font-medium text-gray-700">Street address</label>
-                <input type="text" v-model="userInfo.shipping_address[re].street_address" name="street-address" id="street-address" autocomplete="street-address" class="mt-1 input input-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                <input type="text" v-model="shippingAddress[re].street_address" name="street-address" id="street-address" autocomplete="street-address" class="mt-1 input input-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
               </div>
 
               <div class="col-span-6 sm:col-span-3 lg:col-span-3" v-if="userLoaded">
                 <label for="city" class="block text-sm font-medium text-gray-700">City</label>
-                <input type="text" v-model="userInfo.shipping_address[re].city" name="city" id="city" autocomplete="address-level2" class="mt-1 input input-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                <input type="text" v-model="shippingAddress[re].city" name="city" id="city" autocomplete="address-level2" class="mt-1 input input-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
               </div>
 
               <div class="col-span-6 sm:col-span-3 lg:col-span-3" v-if="userLoaded">
                 <label for="region" class="block text-sm font-medium text-gray-700">State / Province / Parish</label>
-                <input type="text" v-model="userInfo.shipping_address[re].parish" name="parish" id="parish" autocomplete="address-level1" class="mt-1 input input-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                <input type="text" v-model="shippingAddress[re].parish" name="parish" id="parish" autocomplete="address-level1" class="mt-1 input input-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
               </div>
             </div>
           </div>
@@ -95,101 +95,144 @@
         <p class="py-4">{{updateResponseMessage}}</p>
         <div class="modal-action">
         <label for="updatedSuccess" id="updatedSuccessButton"></label>
-        <button class="btn" @click="this.$router.push('/profile')">return to profile</button>
+        <button class="btn" @click="">return to profile</button>
         </div>
     </div>
     </div>
     <FooterComponent class="mt-14"/>
 </section>
 </template>
-<script>
-import { defineComponent } from "vue";
+<script setup lang="ts">
 import NavbarComponent from "@/components/NavbarComponent.vue";
 import FooterComponent from "@/components/FooterComponent.vue";
-import DataService from "@/dataService";
-export default defineComponent({
-    name:'EditProfileView',
-    components:{ NavbarComponent, FooterComponent },
-    data(){
-        return{
-            userInfo : {},
-            userLoaded : false,
-            newAddress : {
-                street_address : '',
-                city : '',
-                parish : ''
-            },
-            error:{
-              email:false,
-              phone:false,
-            },
-            re : 0,
-            editError:'' ,
-            newAddressError : '',
-            updateResponseMessage : ''
-        }
-    },
-    async created(){
-        this.userInfo = await DataService.getUserInfo(this.$getCurrentUserId())
-        this.userLoaded = true
-    },
-    methods:{
-        async updateUser(){
-            let responseModalButton = document.getElementById('updatedSuccessButton')
-            let res = await DataService.updateUser(this.$getCurrentUserId(),this.userInfo)
-            console.log(res);
-            if(res.status){
-                this.updateResponseMessage = `You're account information has been successfully updated`
-            }else{
-                this.updateResponseMessage = `An error has occurred, return to profile page and try again`
-            }
-            responseModalButton.click()
-        },
-        validateForm(){
-          this.error.phone = false
-          this.error.email = false
-            let firstname = document.getElementById('first-name').value
-            let lastname = document.getElementById('last-name').value
-            let email = document.getElementById('email-address').value
-            let phone = document.getElementById('phone-number').value
-            // let dob =  document.getElementById('date_of_birth').value
-            let street = document.getElementById('street-address').value
-            let city = document.getElementById('city').value
-            let parish = document.getElementById('parish').value
-            if(firstname != '' && lastname != '' && street != '' && city != '' && parish != ''){
-               //eslint-disable-next-line
-              if(email != '' && email.match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)){
-                if(phone != '' && phone.match(/^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/)){
-                    this.updateUser()
-                }else{
-                  this.error.phone = true
-                  this.editError = 'Invalid Phone Number'
-                }
-              }else{
-                this.editError = 'Invalid Email Format';
-                this.error.email = true
-              }
-            }else{console.log('NAH');}
-        },
-        addAddress(){
-            let newstreet = document.getElementById('new-street-address').value
-            let newcity = document.getElementById('new-city').value
-            let newparish = document.getElementById('new-parish').value
-            let modalToggleButton = document.getElementById('labelForAddNewAddress')
-            if(newstreet != '' && newcity != '' && newparish != ''){
-                this.userInfo.shipping_address.push(this.newAddress)
-                modalToggleButton.click()
-                this.newAddressError = ''
-                this.newAddress = {
-                street_address : '',
-                city : '',
-                parish : ''
-            }
-            }else{
-                this.newAddressError = 'Please fill out all fields'
-            }
-        }
-    },
+import DataService from "../DataService";
+import { ref, onMounted, reactive } from "vue";
+import { currentUserStore } from "../stores/userStore";
+const currentUser = currentUserStore();
 
-})
+console.log(new Date(currentUser.user.dateOfBirth).toISOString().split);
+// console.log(typeof currentUser.user.dateOfBirth.toISOString());
+let dateString = new Date(currentUser.user.dateOfBirth).toISOString().split("T")[0];
+
+
+const userInfo = reactive({
+  shipping_address: [],
+  billing_address: [],
+});
+const error = reactive({
+  phone: false,
+  email: false,
+});
+const userLoaded = ref(false);
+const editError = ref("");
+const newAddress = reactive({
+  street_address: "",
+  city: "",
+  parish: "",
+});
+const newAddressError = ref("");
+const updateResponseMessage = ref("");  
+
+function addAddress(){}
+function validateForm(){}
+let re = 0;
+
+const shippingAddress = [
+  {
+    street_address: "123 Main Street",
+    parish: "Kingston",
+    city: "Kingston",
+  },
+  {
+    street_address: "123 Main Street",
+    parish: "Kingston",
+    city: "Kingston",
+  },
+];
+
+// export default defineComponent({
+//     name:'EditProfileView',
+//     components:{ NavbarComponent, FooterComponent },
+//     data(){
+//         return{
+//             userInfo : {},
+//             userLoaded : false,
+//             newAddress : {
+//                 street_address : '',
+//                 city : '',
+//                 parish : ''
+//             },
+//             error:{
+//               email:false,
+//               phone:false,
+//             },
+//             re : 0,
+//             editError:'' ,
+//             newAddressError : '',
+//             updateResponseMessage : ''
+//         }
+//     },
+//     async created(){
+//         this.userInfo = await DataService.getUserInfo(this.$getCurrentUserId())
+//         this.userLoaded = true
+//     },
+//     methods:{
+//         async updateUser(){
+//             let responseModalButton = document.getElementById('updatedSuccessButton')
+//             let res = await DataService.updateUser(this.$getCurrentUserId(),this.userInfo)
+//             console.log(res);
+//             if(res.status){
+//                 this.updateResponseMessage = `You're account information has been successfully updated`
+//             }else{
+//                 this.updateResponseMessage = `An error has occurred, return to profile page and try again`
+//             }
+//             responseModalButton.click()
+//         },
+//         validateForm(){
+//           this.error.phone = false
+//           this.error.email = false
+//             let firstname = document.getElementById('first-name').value
+//             let lastname = document.getElementById('last-name').value
+//             let email = document.getElementById('email-address').value
+//             let phone = document.getElementById('phone-number').value
+//             // let dob =  document.getElementById('date_of_birth').value
+//             let street = document.getElementById('street-address').value
+//             let city = document.getElementById('city').value
+//             let parish = document.getElementById('parish').value
+//             if(firstname != '' && lastname != '' && street != '' && city != '' && parish != ''){
+//                //eslint-disable-next-line
+//               if(email != '' && email.match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)){
+//                 if(phone != '' && phone.match(/^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/)){
+//                     this.updateUser()
+//                 }else{
+//                   this.error.phone = true
+//                   this.editError = 'Invalid Phone Number'
+//                 }
+//               }else{
+//                 this.editError = 'Invalid Email Format';
+//                 this.error.email = true
+//               }
+//             }else{console.log('NAH');}
+//         },
+//         addAddress(){
+//             let newstreet = document.getElementById('new-street-address').value
+//             let newcity = document.getElementById('new-city').value
+//             let newparish = document.getElementById('new-parish').value
+//             let modalToggleButton = document.getElementById('labelForAddNewAddress')
+//             if(newstreet != '' && newcity != '' && newparish != ''){
+//                 this.userInfo.shipping_address.push(this.newAddress)
+//                 modalToggleButton.click()
+//                 this.newAddressError = ''
+//                 this.newAddress = {
+//                 street_address : '',
+//                 city : '',
+//                 parish : ''
+//             }
+//             }else{
+//                 this.newAddressError = 'Please fill out all fields'
+//             }
+//         }
+//     },
+
+// })
 </script>

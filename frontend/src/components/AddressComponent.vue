@@ -42,31 +42,57 @@
     </div>
 </template>
 
-<script>
-import DataService from '@/dataService'
+<script setup lang="ts">
+import { ref } from 'vue';
 
-export default{
-    name:'AddressComponent',
-    data(){
-        return{
-            shippingEnabled:false,
-            shippingAddress:[],
-            addressSelection:''
-        }
-    },
-    methods:{
-      emitShippingStatus(){
-        this.$emitter.emit('shipping-toggle',{enabled:this.shippingEnabled})
-      },
-      async getShippingAddress(){
-        let res = await DataService.getUserInfo(this.$getCurrentUserId())
-        this.shippingAddress = res.shipping_address
-      }
-    },
-    created(){
-      this.getShippingAddress()
-    }
+let shippingEnabled = ref(false);
+let addressSelection = ref('other');
+
+function emitShippingStatus() {
+  // empty for now
 }
+
+let shippingAddress = [
+  {
+    street_address: '123 Main Street',
+    city: 'Kingston',
+    parish: 'St. Andrew'
+  },
+  {
+    street_address: '456 Main Street',
+    city: 'Kingston',
+    parish: 'St. Andrew'
+  },
+  {
+    street_address: '789 Main Street',
+    city: 'Kingston',
+    parish: 'St. Andrew'
+  }
+]
+// import DataService from '@/dataService'
+
+// export default{
+//     name:'AddressComponent',
+//     data(){
+//         return{
+//             shippingEnabled:false,
+//             shippingAddress:[],
+//             addressSelection:''
+//         }
+//     },
+//     methods:{
+//       emitShippingStatus(){
+//         this.$emitter.emit('shipping-toggle',{enabled:this.shippingEnabled})
+//       },
+//       async getShippingAddress(){
+//         let res = await DataService.getUserInfo(this.$getCurrentUserId())
+//         this.shippingAddress = res.shipping_address
+//       }
+//     },
+//     created(){
+//       this.getShippingAddress()
+//     }
+// }
 </script>
 
 <style scoped>

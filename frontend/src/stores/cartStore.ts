@@ -1,8 +1,9 @@
 import { Product, } from "@prisma/client";
 import { defineStore } from "pinia";
 import DataService from "../DataService";
-
 import {Cart, CartItem} from "../types/betterTypes";
+
+
 
 let defaultCart:Cart = {
     id: 0,

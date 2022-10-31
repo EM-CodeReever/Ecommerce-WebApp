@@ -48,7 +48,7 @@
               <button class="btn btn-success absolute bottom-4 right-4">shop now</button>
             </div>
             <h3 class="mt-6 text-sm font-bold text-gray-200">
-              <a href="/store/cat003bp">
+              <a href="/store/3">
                 <span class="absolute inset-0"></span>
                 Barbering Supplies
               </a>
@@ -62,7 +62,7 @@
               <button class="btn btn-success absolute bottom-4 right-4">shop now</button>
             </div>
             <h3 class="mt-6 text-sm font-bold text-gray-200">
-              <a href="/store/cat001hr">
+              <a href="/store/2">
                 <span class="absolute inset-0"></span>
                 Hair & Hair Products
               </a>
@@ -76,7 +76,7 @@
               <button class="btn btn-success absolute bottom-4 right-4">shop now</button>
             </div>
             <h3 class="mt-6 text-sm font-bold text-gray-200">
-              <a href="/store/cat007si">
+              <a href="/store/7">
                 <span class="absolute inset-0"></span>
                 Household and Sanitary items
               </a>
@@ -91,8 +91,8 @@
 
 
   <div class="bg-none slideanim">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-2xl mx-auto py-5 lg:py-10 lg:max-w-none">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-xl mx-auto py-5 lg:py-10 lg:max-w-none">
         <h2 class="text-2xl lg:text-4xl font-extrabold text-gray-200 text-center">New Additions</h2>
         <div class="grid md:grid-cols-3 lg:grid-row-2 xs:grid-cols-2 grid-cols-1 grid-flow-rows gap-3 sm:gap-3 lg:gap-5 mt-6">
           <ProductComponent width="auto" :product="product" v-for="index in 6" :key="index"/>
@@ -142,7 +142,7 @@ let product: Product = {
   name: 'test',
   description: 'test',
   price: 1,
-  categoryId: 0,
+  categoryId: 1,
   rating: 1,
   stock: 1,
   thumbnail: 'https://i.ibb.co/zFmcprv/IG-0000-deborah-12-970x970.jpg',

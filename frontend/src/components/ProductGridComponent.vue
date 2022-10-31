@@ -3,20 +3,25 @@
     <div class="w-full h-fit min-h-96 flex justify-center">
         
         <div class="w-full max-w-xl md:max-w-3xl lg:max-w-6xl xl:max-w-7xl pb-5 h-fit bg-gray-700 rounded relative flex flex-col justify-between" v-if="!(products.length == 0)">
-            <FilterProductsComponent class="lg:sticky lg:top-24" v-if="true"/>
+            <FilterProductsComponent />
             <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid-flow-row gap-3 h-fit px-3">
-                <ProductComponent v-for="p in products" :product="p"/>
+                <ProductComponent v-for="p in products" width="full" :product="p"/>
             </div>
         </div>
-        <div class="w-full max-w-xl md:max-w-3xl lg:max-w-6xl xl:max-w-7xl mx-5 h-96 bg-gray-700 flex justify-center items-center rounded " v-else>
-            <svg class="animate-spin -ml-1 mr-3 h-12 w-12 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" v-if="!loaded">
+        <div class="w-full max-w-xl md:max-w-3xl lg:max-w-6xl xl:max-w-7xl pb-5 h-fit bg-gray-700 rounded relative flex flex-col justify-between" v-else>
+            <FilterProductsComponent />
+            <div class="flex w-full justify-center items-center">
+                <div class="w-full h-96 flex justify-center items-center text-gray-100 font-bold" v-if="loaded">
+                    <svg class="w-6 h-6 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16l2.879-2.879m0 0a3 3 0 104.243-4.242 3 3 0 00-4.243 4.242zM21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    No Results Found
+                </div>
+                <div class="w-full h-96 flex justify-center items-center text-gray-100 font-bold" v-if="!loaded">
+                    <svg class="animate-spin h-12 w-12 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                     <circle class="opacity-25" cx="12" cy="12" r="10" stroke="gray" stroke-width="4"></circle>
                     <path class="opacity-75" fill="white" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                 </svg>
-                <div class="w-full h-96 gap-4 px-5 flex justify-center items-center text-gray-100 font-bold" v-if="loaded">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16l2.879-2.879m0 0a3 3 0 104.243-4.242 3 3 0 00-4.243 4.242zM21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    No Results Found
                 </div>
+            </div>
         </div>
     </div>
 </template>

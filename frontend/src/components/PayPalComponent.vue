@@ -15,75 +15,79 @@
     <div v-show="!loading" id="paypal-button-container" style="width: 600px"></div>
 </div>
 </template>
-<script>
-import { loadScript } from "@paypal/paypal-js";
-import DataService from '@/dataService';
+<script setup lang="ts">
+import { ref, onMounted } from 'vue';
+let loading = ref(true);
+let processing = ref(false);
+let finalPrice = ref(0);
+// import { loadScript } from "@paypal/paypal-js";
+// import DataService from '@/DataService.';
 
 
-export default{
-    name:'PayPalComponent',
-    props:['finalPrice'],
-    async created(){
-      console.log(this.finalPrice);
-      let paypal;
-      try {
-          paypal = await loadScript({ "client-id": "AdvIgUrH3b2FHFhxFa9x3q_skku6OhTvDteO7OeIneJ9N8PYUcAdjbNwtsAPQBGk-r8-sj-a576GPKyC" , currency: "USD"});
-      } catch (error) {
-          console.log("failed to load the PayPal JS SDK script", error);
-      }
-      if (paypal) {
-          try {
-              await paypal.Buttons({
+// export default{
+//     name:'PayPalComponent',
+//     props:['finalPrice'],
+//     async created(){
+//       console.log(this.finalPrice);
+//       let paypal;
+//       try {
+//           paypal = await loadScript({ "client-id": "AdvIgUrH3b2FHFhxFa9x3q_skku6OhTvDteO7OeIneJ9N8PYUcAdjbNwtsAPQBGk-r8-sj-a576GPKyC" , currency: "USD"});
+//       } catch (error) {
+//           console.log("failed to load the PayPal JS SDK script", error);
+//       }
+//       if (paypal) {
+//           try {
+//               await paypal.Buttons({
                   
-                createOrder: (data, actions) => {
-                  // Set up the transaction
-                  return actions.order.create({
-                    purchase_units: [
-                      {
-                        amount: {
-                          value: `${this.finalPrice}`
-                        }
-                      }
-                    ],
-                    application_context: {
-                      shipping_preference: 'NO_SHIPPING'
-                    }
-                  });
-                },
-                onApprove: async (data,actions) => {
-                  console.log(data);
-                  return actions.order.capture().then((res)=>{
-                    this.processing = true //controls processing animation
-                    this.$emitter.emit('generate-order',res)
-                    this.$emitter.on('transaction-complete',()=>{
-                      this.processing = false
-                      this.clearUserCart()
-                      this.$router.push('/payment-success')
-                    })
+//                 createOrder: (data, actions) => {
+//                   // Set up the transaction
+//                   return actions.order.create({
+//                     purchase_units: [
+//                       {
+//                         amount: {
+//                           value: `${this.finalPrice}`
+//                         }
+//                       }
+//                     ],
+//                     application_context: {
+//                       shipping_preference: 'NO_SHIPPING'
+//                     }
+//                   });
+//                 },
+//                 onApprove: async (data,actions) => {
+//                   console.log(data);
+//                   return actions.order.capture().then((res)=>{
+//                     this.processing = true //controls processing animation
+//                     this.$emitter.emit('generate-order',res)
+//                     this.$emitter.on('transaction-complete',()=>{
+//                       this.processing = false
+//                       this.clearUserCart()
+//                       this.$router.push('/payment-success')
+//                     })
 
-                  });
-                },
+//                   });
+//                 },
 
-              }).render('#paypal-button-container');
-              this.loading = false //paypal buttons loading animation
-          } catch (error) {
-              console.log("Failed to render the PayPal Buttons: ", error);
-          }
-      }
+//               }).render('#paypal-button-container');
+//               this.loading = false //paypal buttons loading animation
+//           } catch (error) {
+//               console.log("Failed to render the PayPal Buttons: ", error);
+//           }
+//       }
 
-    },
-    methods:{
-      async clearUserCart(){
-        await DataService.updateUserCart(this.$getCurrentUserId(),[])
-      }
-    },
-    data(){
-      return{
-        loading:true,
-        processing : false
-      }
-    }
-}
+//     },
+//     methods:{
+//       async clearUserCart(){
+//         await DataService.updateUserCart(this.$getCurrentUserId(),[])
+//       }
+//     },
+//     data(){
+//       return{
+//         loading:true,
+//         processing : false
+//       }
+//     }
+// }
 </script>
 //sandbox customer account info
 //PC;2KN!e

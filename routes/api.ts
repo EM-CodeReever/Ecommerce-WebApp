@@ -37,7 +37,6 @@ export default class Routes{
         });
         
         router.get('/category/:categoryId', async (req:Request, res:Response) => {
-            console.log("pppppppppppp: "+req.params.categoryId);
             const products = await prisma.product.findMany({
                 where: {
                     categoryId: Number(req.params.categoryId)
@@ -83,8 +82,11 @@ export default class Routes{
             }
             res.send(loginResponse);
         });
-
-        router.post('/register', async (req:Request, res:Response) => {
+        router.get('/users', async (req:Request, res:Response) => {
+            const users = await prisma.user.findMany();
+            res.send(users);
+        });
+        router.post('/register', async (req:Request, res:Response) => {        
             let loginResponse: LoginResponse
             let incomingUser = req.body as User;
             const user = await prisma.user.findUnique({
@@ -207,26 +209,22 @@ export default class Routes{
                                     cartId: cart.id
                                 },
                             });
-                            console.log('AHAHAAHAHAHAHAHAAHH');
-                            //i am not going insane i swear to god i am not going insane 
-                            
                         }
                     });
                 res.send('Write successful');
             }
         });
 
-        router.get('/empty-cart/:cartId', async (req:Request, res:Response) => {
-            // console.log(req.body);
-            
+        router.get('/empty-cart/:userId', async (req:Request, res:Response) => {
             const updatedCart = await prisma.cart.update({
                 where: {
-                    userId: Number(req.params.cartId)
+                    userId: Number(req.params.userId)
                 },
                 data: {
                     cartItems: {
-                        set: []
-                    }
+                        deleteMany: {}
+                    },
+                    total: 0
                 }
             });
             if (updatedCart) {

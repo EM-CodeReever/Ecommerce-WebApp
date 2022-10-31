@@ -102,13 +102,17 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   const currentUser = currentUserStore();
     if (to.meta.auth) {
+      console.log(to.name);
+      
         if (!currentUser.loggedIn) {
             next({ name: 'login' });
         } else {
             if (currentUser.isAdmin && to.name === 'admin') {
-                next({ name: 'admin' });
+                next();
+            }else if(!currentUser.isAdmin && to.name === 'admin'){
+              next({ name: 'Home' });
             }else{
-                next({ name: 'Home' });
+              next();
             }
         }
     } else {

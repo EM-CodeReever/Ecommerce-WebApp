@@ -1,5 +1,6 @@
 <template>
-    <div class="w-full flex flex-col justify-evenly h-72 hover:bg-gray-900 hover:cursor-pointer rounded relative" @click="goToProductPage()">
+    <div :class="`w-full flex flex-col justify-evenly h-72 hover:bg-gray-900  hover:cursor-pointer rounded relative
+    transition ease-in-out delay-100 hover:-translate-y-3 hover:scale-100 duration-300`" @click="goToProductPage()" style="min-width: 16rem">
         <span class="w-fit px-3 py-2 font-semibold absolute bg-rose-600 text-white top-0 right-0 rounded-tr rounded-bl">
             ${{product.price}}
         </span>
@@ -18,6 +19,7 @@ const router = useRouter();
 
 let props = defineProps<{
     product: Product
+    width: string | number
 }>()
 
 function goToProductPage() {
