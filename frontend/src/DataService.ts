@@ -4,8 +4,8 @@ import { Cart as BetterCart , Product as BetterProduct } from './types/betterTyp
 import axios from 'axios';
 import { LoginRequest, LoginResponse } from './types';
 
-// const API_URL = 'http://localhost:5000/api';
-const API_URL = 'http://192.168.1.6:5000/api';
+const API_URL = 'http://localhost:5000/api';
+// const API_URL = 'http://192.168.1.2:5000/api';
 
 export default class DataService {
     static async getTest():Promise<string> {

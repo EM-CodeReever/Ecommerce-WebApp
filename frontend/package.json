@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@paypal/paypal-js": "^5.1.1",
-    "daisyui": "^2.33.0",
+    "daisyui": "^2.37.0",
     "epic-spinners": "^2.0.0",
     "mitt": "^3.0.0",
     "pinia": "^2.0.23",
