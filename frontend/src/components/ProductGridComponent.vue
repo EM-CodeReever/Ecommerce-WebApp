@@ -5,7 +5,7 @@
         <div class="w-full max-w-xl md:max-w-3xl lg:max-w-6xl xl:max-w-7xl pb-5 h-fit bg-gray-700 rounded relative flex flex-col justify-between" v-if="!(products.length == 0)">
             <FilterProductsComponent />
             <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid-flow-row gap-3 h-fit px-3">
-                <ProductComponent v-for="p in products" width="full" :product="p"/>
+                <ProductComponent v-for="p in products" :minWidth="1" :product="p"/>
             </div>
         </div>
         <div class="w-full max-w-xl md:max-w-3xl lg:max-w-6xl xl:max-w-7xl pb-5 h-fit bg-gray-700 rounded relative flex flex-col justify-between" v-else>

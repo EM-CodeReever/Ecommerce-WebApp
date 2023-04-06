@@ -10,7 +10,7 @@
       :duration="3000"
       :bulletsOutside="true"
       :dragging-distance="70">
-      <vueper-slide v-for="i in 9" :key="i" :title="i.toString()" class="rounded-box" image="https://erasmusnation-com.ams3.digitaloceanspaces.com/woocommerce-placeholder.png"/>
+      <vueper-slide v-for="i in 9" :key="i" :title="i.toString()" class="rounded-box" image="https://images.unsplash.com/photo-1518894781321-630e638d0742?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"/>
   </vueper-slides>
 </template>
 

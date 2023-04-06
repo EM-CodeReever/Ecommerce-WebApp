@@ -6,55 +6,45 @@
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
         </label>
         <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-gray-200 rounded-box w-52 text-black">
-          <li class="hover:text-[#be185d]"><router-link to="/">
+          <li class="hover:text-rose-500"><router-link to="/">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
             Home</router-link></li>
-          <li class="hover:text-[#be185d]"><router-link to="/categories">
+          <li class="hover:text-rose-500"><router-link to="/categories">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
             Shop</router-link></li>
-          <li class="hover:text-[#be185d]"><router-link to="/contact">
+          <li class="hover:text-rose-500"><router-link to="/contact">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"></path></svg>
             Contact us</router-link></li>
-          <li class="hover:text-[#be185d]"><router-link to="/about">
+          <li class="hover:text-rose-500"><router-link to="/about">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
             About</router-link></li>
-          <li v-if="true" class="hover:text-[#be185d]"><router-link to="/admin">
+          <li v-if="true" class="hover:text-rose-500"><router-link to="/admin">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
             Admin Section</router-link></li>
         </ul>
       </div>
-      <router-link to="/" class="text-white btn btn-ghost normal-case text-xl hover:text-[#be185d] font-bold flex">
-        <img src="../assets/ik-logo.png" alt="Ishmael Klassic logo" class="h-12 -mt-3">
+      <router-link to="/" class="text-white btn btn-ghost normal-case  text-xl hover:text-rose-500 font-bold flex">
+        <!-- LOGO GOES HERE -->
+        <img src="../assets/vue.svg" alt="Default Logo" class="h-12 mx-2 -mt-1">
       </router-link>
     </div>
     <div class="navbar-center hidden xl:flex">
       <ul class="menu menu-horizontal p-0">
-        <li class="hover:text-[#be185d] font-bold"><router-link to="/" class="justify-between">
+        <li class="hover:text-rose-500 font-bold"><router-link to="/" class="justify-between">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
           Home</router-link></li>
-        <li class="hover:text-[#be185d] font-bold"><router-link to="/categories">
+        <li class="hover:text-rose-500 font-bold"><router-link to="/categories">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
-          Shop
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          Store
           </router-link>
-          <ul class="z-50 bg-gray-200 text-black w-fit shadow-lg shadow-black">
-            <li class="mx-3 my-1 w-fit hover:text-[#be185d]"><a href="/store/2">Hair</a></li>
-            <li class="mx-3 my-1 w-fit hover:text-[#be185d]"><a href="/store/1">Hair Products</a></li>
-            <li class="mx-3 my-1 w-fit hover:text-[#be185d]"><a href="/store/3">Barbering Products</a></li>
-            <li class="mx-3 my-1 w-fit hover:text-[#be185d]"><a href="/store/4">Nail-Care Products</a></li>
-            <li class="mx-3 my-1 w-fit hover:text-[#be185d]"><a href="/store/5">Jewelry</a></li>
-            <li class="mx-3 my-1 w-fit hover:text-[#be185d]"><a href="/store/6">Electronic Accessories</a></li>
-            <li class="mx-3 my-1 w-fit hover:text-[#be185d]"><a href="/store/7">Sanitary Items</a></li>
-            <li class="mx-3 my-1 w-fit hover:text-[#be185d]"><a href="/store/8">Household items</a></li>
-          </ul>
           </li>
-				<li class="hover:text-[#be185d] font-bold"><router-link to="/contact">
+				<li class="hover:text-rose-500 font-bold"><router-link to="/contact">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"></path></svg>
           Contact us</router-link></li>
-				<li class="hover:text-[#be185d] font-bold"><router-link to="/about">
+				<li class="hover:text-rose-500 font-bold"><router-link to="/about">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
           About</router-link></li>
-        <li v-if="true" class="hover:text-[#be185d] font-bold"><router-link to="/admin">
+        <li v-if="true" class="hover:text-rose-500 font-bold"><router-link to="/admin">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
           Admin Section</router-link></li>
       </ul>
@@ -68,7 +58,7 @@
         <label tabindex="0" class="btn btn-ghost btn-outline btn-circle mx-3 text-black">
           <div class="indicator">
              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
-            <span class="badge badge-sm bg-rose-800  text-white indicator-item -mr-2 -mt-2" v-if="true">{{cartNum}}</span>
+            <span class="badge badge-sm bg-rose-600  text-white indicator-item -mr-2 -mt-2" v-if="true">{{cartNum}}</span>
           </div>
         </label>
        
@@ -78,7 +68,7 @@
             <span class="font-bold text-lg">{{cartNum}} Items</span>
             <span class="text-blue-800 font-medium">Subtotal: ${{subTotal}}</span>
             <div class="card-actions">
-              <button class="btn btn-primary btn-block" @click="goToCart">View cart</button>
+              <button class="btn btn-error btn-block" @click="goToCart">View cart</button>
             </div>
             
           </div>
@@ -108,7 +98,7 @@
           </div>
         </label>
         <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-gray-200 rounded-box w-52 text-black">
-          <li class="md:hidden"><a class="bg-[#be185d]">
+          <li class="md:hidden"><a class="bg-rose-500">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
             {{ currentUser.fullName }}</a></li>
           <li><router-link to="/profile">Profile</router-link></li>
@@ -128,27 +118,30 @@ import { currentCartStore } from '../stores/cartStore';
 import {useEventStore} from '../stores/eventStore';
 import DataService from '../DataService';
 import { Category } from '.prisma/client';
+import {Logger} from 'tslog';
+const logger = new Logger();
 let eventStore = useEventStore();
 eventStore.emitter.on('sample', (data) => {
     console.log(data);    
 });
 
 let tooltip = ref(false);
-
+let categoriesLoaded = ref(false);
 const router = useRouter();
 const currentUser = currentUserStore();
 let currentCart = currentCartStore();
-let categoryList = ref<Category[]>([]);
+let categoryList = ref([] as Category[]);
+
+
 // getCart();
 
 // async function getCart(){
 //     currentCart.setCurrentCart(await DataService.getUserCart(currentUser.user.id) as Cart);
 // }
 currentCart.$subscribe(async (data) => {
-  console.log(data);
-  
+    logger.info("Data: " + data)
     await currentCart.writeToDatabase();
-    console.log("cart changed");
+    logger.info('Cart changed and written to database')
     cartNum.value = currentCart.getProductCount();
     subTotal.value = currentCart.getTotal();
     toggleTooltip(currentUser.loggedIn);
@@ -178,11 +171,6 @@ function goToCart() {
   router.push('/cart');
 }
 
-async function getAllCategories(){
-  categoryList = await DataService.getAllCategories()
-}
-
-getAllCategories();
 
 function toggleTooltip(bool:boolean){
   if(bool){
