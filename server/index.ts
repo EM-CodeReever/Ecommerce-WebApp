@@ -30,7 +30,7 @@ if (process.env.NODE_ENV === 'production') {
     console.log("dirname: " + frontendPath + '/index.html')
     app.use(history())
     app.use(express.static(path.join(frontendPath, '/')));
-    
+    console.log("dirname(this runs): " + frontendPath + '/index.html')
     app.get('/', (req, res) => {
         console.log('Serving index.html')
         res.sendFile(path.join(frontendPath, '/index.html'));
