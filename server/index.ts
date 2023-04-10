@@ -26,6 +26,7 @@ console.log(`Currently in ${process.env.NODE_ENV} mode`)
 
 if (process.env.NODE_ENV === 'production') {
     console.log('Serving static files from /public')
+    console.log("dirname: " + __dirname)
     app.use(history())
     app.use(express.static(path.join(__dirname, '/public/')));
     
