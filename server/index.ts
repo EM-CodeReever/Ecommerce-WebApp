@@ -37,7 +37,7 @@ if (process.env.NODE_ENV === 'production') {
     })
 }
 
-app.listen(port, () => console.log(`Listening on port ${port}`));
+app.listen(`0.0.0.0:${port}`, () => console.log(`Listening on port ${port}`));
 
 // app.route('/')
 //     .post((req:Request, res:Response) => {
