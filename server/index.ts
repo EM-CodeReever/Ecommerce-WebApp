@@ -25,10 +25,12 @@ app.use('/api', Routes.routes());
 console.log(`Currently in ${process.env.NODE_ENV} mode`)
 
 if (process.env.NODE_ENV === 'production') {
+    console.log('Serving static files from /public')
     app.use(history())
     app.use(express.static(path.join(__dirname, '/public/')));
     
     app.get('/', (req, res) => {
+        console.log('Serving index.html')
         res.sendFile(path.join(__dirname, '/public/index.html'));
     })
 }
