@@ -14,7 +14,7 @@
     </div>             
 </template>
 <script setup lang="ts">
-import { Product } from '.prisma/client';
+import { Product } from '@prisma/client';
 import { useRouter } from 'vue-router';
 const router = useRouter();
 
