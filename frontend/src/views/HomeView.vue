@@ -127,7 +127,7 @@ import CustomVueperSlide from '../components/CustomVueperSlide.vue'
 import FooterComponent from '../components/FooterComponent.vue'
 import ProductComponent from '../components/ProductComponent.vue'
 import HeadBannerComponent from '../components/HeadBannerComponent.vue'
-import { Product, Images } from '.prisma/client'
+import { Product, Images } from '@prisma/client'
 //ignore next line
 import { VueperSlides, VueperSlide } from 'vueperslides' 
 import 'vueperslides/dist/vueperslides.css';

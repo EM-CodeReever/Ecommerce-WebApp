@@ -180,7 +180,8 @@ import NavbarComponent from '../components/NavbarComponent.vue'
 import DataService from '../DataService'
 import FooterComponent from '../components/FooterComponent.vue'
 import { ref } from 'vue'
-import { Gender, Role, User } from '@prisma/client'
+import { User } from '@prisma/client'
+import { Role } from '../types/index'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
@@ -205,7 +206,7 @@ let newUser = ref<User>({
     gender: 'RATHER_NOT_SAY',
     createdAt: new Date(),
     updatedAt: new Date(),
-    id: '',
+    id: 0,
     role: Role.USER,
 })
  function validateEmail(email: string) {

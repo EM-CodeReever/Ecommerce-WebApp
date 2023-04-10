@@ -35,7 +35,7 @@ import NavbarComponent from "@/components/NavbarComponent.vue"
 import FooterComponent from "@/components/FooterComponent.vue"
 import { onMounted, Ref, ref } from "vue";
 import { useRouter } from "vue-router";
-import { Category } from ".prisma/client";
+import { Category } from "@prisma/client";
 import DataService from "../DataService";
 const router = useRouter();
 let callouts = ref<any>();

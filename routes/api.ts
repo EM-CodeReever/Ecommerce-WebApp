@@ -1,6 +1,6 @@
 import { Response, Request, Router} from "express";
 import bcrypt, {hash,genSalt, genSaltSync} from "bcrypt";
-import {Cart, CartItem, PrismaClient, User} from "../node_modules/@prisma/client";
+import {PrismaClient, User} from "@prisma/client";
 import {Cart as BetterCart} from "../frontend/src/types/betterTypes";
 import { LoginResponse } from "../frontend/src/types";
 import { Logger } from "tslog";
