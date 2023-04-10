@@ -4,7 +4,7 @@ import cors from "cors";
 import path from 'path';
 import Routes from "../routes/api"
 const history = require('connect-history-api-fallback');
-const frontendPath = 'app/frontend/dist/';
+const frontendPath = 'app/frontend/dist';
 
 const app:Application = express();
 
