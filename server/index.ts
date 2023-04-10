@@ -4,6 +4,7 @@ import cors from "cors";
 import path from 'path';
 import Routes from "../routes/api"
 const history = require('connect-history-api-fallback');
+const frontendPath = 'app/frontend/dist/';
 
 const app:Application = express();
 
@@ -28,11 +29,11 @@ if (process.env.NODE_ENV === 'production') {
     console.log('Serving static files from /public')
     console.log("dirname: " + __dirname)
     app.use(history())
-    app.use(express.static(path.join(__dirname, '/public/')));
+    app.use(express.static(path.join(frontendPath, '/')));
     
     app.get('/', (req, res) => {
         console.log('Serving index.html')
-        res.sendFile(path.join(__dirname, '/public/index.html'));
+        res.sendFile(path.join(frontendPath, '/index.html'));
     })
 }
 
