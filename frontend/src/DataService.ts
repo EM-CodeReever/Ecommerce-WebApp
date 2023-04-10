@@ -6,7 +6,7 @@ import { LoginRequest, LoginResponse } from './types';
 import { env } from 'process';
 const logger = new Logger();
 
-const API_URL = `em-codereever-service-production.up.railway.app:${process.env.PORT}/api`;
+const API_URL = `em-codereever-service-production.up.railway.app/api`;
 // const API_URL = 'http://192.168.0.23:5000/api';
 
 export default class DataService {
