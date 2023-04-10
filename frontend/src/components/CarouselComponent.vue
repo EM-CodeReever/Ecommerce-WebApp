@@ -13,7 +13,7 @@
         <!-- </div> -->
 </template>
 <script setup lang="ts">
-import { Images } from '.prisma/client';
+import { Images } from '@prisma/client';
 import { ref } from 'vue'
 let props = defineProps<{
     itemId: number,

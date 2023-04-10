@@ -117,7 +117,7 @@ import { currentUserStore } from '../stores/userStore';
 import { currentCartStore } from '../stores/cartStore';
 import {useEventStore} from '../stores/eventStore';
 import DataService from '../DataService';
-import { Category } from '.prisma/client';
+import { Category } from '@prisma/client';
 import {Logger} from 'tslog';
 const logger = new Logger();
 let eventStore = useEventStore();

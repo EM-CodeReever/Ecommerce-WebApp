@@ -51,7 +51,7 @@ import { currentCartStore} from '../stores/cartStore';
 import type { LoginRequest, LoginResponse } from '../types/index';
 import { Cart } from '../types/betterTypes';
 import { useRouter } from 'vue-router';
-import { User } from '.prisma/client';
+import { User } from '@prisma/client';
 let router = useRouter();
 let currentUser = currentUserStore();
 let currentCart = currentCartStore();
