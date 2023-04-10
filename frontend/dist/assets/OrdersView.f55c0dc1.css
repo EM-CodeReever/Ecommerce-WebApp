@@ -1,0 +1,1 @@
+.scroll-style::-webkit-scrollbar{background-color:transparent;width:3px;height:3px}.scroll-style::-webkit-scrollbar-thumb{background-color:#000;border-radius:10px}.m-h-48-rem{max-height:45rem}@media (max-width: 600px){.m-h-48-rem{max-height:80vh}}.max-height-500{max-height:500px}
