@@ -3,9 +3,10 @@ import { Cart as BetterCart , Product as BetterProduct } from './types/betterTyp
 import { Logger } from 'tslog'
 import axios from 'axios';
 import { LoginRequest, LoginResponse } from './types';
+import { env } from 'process';
 const logger = new Logger();
 
-const API_URL = 'em-codereever-service-production.up.railway.app/api';
+const API_URL = `em-codereever-service-production.up.railway.app:${env.PORT}/api`;
 // const API_URL = 'http://192.168.0.23:5000/api';
 
 export default class DataService {
