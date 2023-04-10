@@ -19,9 +19,7 @@ model User {
   lastName  String
   passwordHash String
   dateOfBirth DateTime
-  gender    Gender
   phoneNumber String
-  role Role
   orders Order[]
   reviews Review[]
   shippingAddress ShippingAddress[]
@@ -118,21 +116,4 @@ model ShippingAddress {
   order Order?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-}
-
-enum Role {
-  ADMIN
-  USER
-}
-
-enum Size {
-  SMALL
-  MEDIUM
-  LARGE
-}
-
-enum Gender {
-  MALE
-  FEMALE
-  RATHER_NOT_SAY
 }
