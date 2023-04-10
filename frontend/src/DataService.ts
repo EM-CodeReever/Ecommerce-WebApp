@@ -5,7 +5,7 @@ import axios from 'axios';
 import { LoginRequest, LoginResponse } from './types';
 const logger = new Logger();
 
-const API_URL = 'https://9146-207-204-82-196.ngrok.io';
+const API_URL = 'em-codereever-service-production.up.railway.app/api';
 // const API_URL = 'http://192.168.0.23:5000/api';
 
 export default class DataService {

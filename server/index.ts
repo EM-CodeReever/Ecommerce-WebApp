@@ -35,13 +35,13 @@ if (process.env.NODE_ENV === 'production') {
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
-app.route('/')
-    .post((req:Request, res:Response) => {
-        res.send('test');
-    })
-    .get((req:Request, res:Response) => {
-        res.send(generateRandomCode());
-    })
+// app.route('/')
+//     .post((req:Request, res:Response) => {
+//         res.send('test');
+//     })
+//     .get((req:Request, res:Response) => {
+//         res.send(generateRandomCode());
+//     })
 
 function generateRandomCode(){
     var characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
