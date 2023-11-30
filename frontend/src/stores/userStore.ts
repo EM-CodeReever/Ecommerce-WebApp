@@ -1,5 +1,5 @@
 import {defineStore} from "pinia";
-import { Gender, Role, User } from "@prisma/client";
+import { User } from "@prisma/client";
 import {currentCartStore} from "./cartStore";
 import {Cart} from "../types/betterTypes";
 import DataService from "../DataService";
@@ -11,9 +11,9 @@ let currentUser: User  =  {
     email: "",
     phoneNumber : "",
     passwordHash: "",
-    role : Role.USER,
+    // role : Role.USER,
     dateOfBirth : new Date(),
-    gender : Gender.RATHER_NOT_SAY,
+    // gender : Gender.RATHER_NOT_SAY,
     createdAt: new Date(),
     updatedAt: new Date(),
 };
@@ -37,11 +37,12 @@ export const currentUserStore = defineStore("currentUser", {
         fullName():string{
             return this.user.firstName + " " + this.user.lastName;
         },
+        //TODO: implement 29/11/2023 
         isAdmin():boolean{
-            return this.user.role == Role.ADMIN
+            return true
         },
         isUser():boolean{
-            return this.user.role == Role.USER
+            return false
         }
     },
     persist: true

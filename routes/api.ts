@@ -174,9 +174,9 @@ export default class Routes{
                         firstName: incomingUser.firstName,
                         lastName: incomingUser.lastName,
                         phoneNumber: incomingUser.phoneNumber,
-                        role: incomingUser.role,
+                        // role: incomingUser.role,
                         dateOfBirth: new Date(incomingUser.dateOfBirth),
-                        gender: incomingUser.gender,
+                        // gender: incomingUser.gender,
                     }
                 });
                 const cart = await prisma.cart.create({
